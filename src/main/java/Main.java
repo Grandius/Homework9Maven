@@ -2,17 +2,19 @@ public class Main {
 
     public static void main(String[] args) {
 
-        KnightChess[] knights = new KnightChess[4];
+        KnightChess[] knights = new KnightChess[5];
         knights[0] = new KnightChess();
-        knights[1] = new KnightChess("b6");
-        knights[2] = new KnightChess("h4");
-        knights[3] = new KnightChess("a2");
+        knights[1] = new KnightChess("B6");
+        knights[2] = new KnightChess("H4");
+        knights[3] = new KnightChess("A2");
+        knights[4] = new KnightChess("J6");
         for (KnightChess kn: knights) {
 
-            kn.moveFigure("c3");
+            kn.moveFigure("C3");
+            System.out.println();
 
         }
-        
+
     }
 
 }

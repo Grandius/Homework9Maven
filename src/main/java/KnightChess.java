@@ -22,11 +22,13 @@ public class KnightChess {
 
     public void setInitialPosition(String initialPosition) {
         if (!isValidPosition(initialPosition)) {
+            this.initialPosition = "A1";
             System.out.println("the provided position is invalid, standard position A1 is used");
-            this.initialPosition = "a1";
 
+        } else {
+            this.initialPosition = initialPosition;
         }
-        this.initialPosition = initialPosition;
+
     }
 
     public KnightMoveConverter getConverter() {
@@ -49,10 +51,11 @@ public class KnightChess {
     public void moveFigure(String desiredPosition) {
 
         if (initialPosition == null || initialPosition.isEmpty() || initialPosition.isBlank()) {
-            setInitialPosition("a1");
+            System.out.println("Initial position is not defined, standard position A1 is used");
+            setInitialPosition("A1");
             moveFigure(desiredPosition);
         } else if (desiredPosition == null || desiredPosition.isEmpty() || desiredPosition.isBlank()) {
-            moveFigure("b3");
+            moveFigure("B3");
         } else if (isValidPosition(desiredPosition)) {
             converter = converter.convertKnightMove(initialPosition, desiredPosition);
             if (((converter.getIndex1() == 2) && (converter.getIndex2() == 1)) || ((converter.getIndex1() == 1) && (converter.getIndex2() == 2))) {
