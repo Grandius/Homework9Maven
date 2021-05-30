@@ -4,16 +4,15 @@ public class Main {
 
         KnightChess[] knights = new KnightChess[4];
         knights[0] = new KnightChess();
-        knights[1] = new KnightChess("B6");
-        knights[2] = new KnightChess("H4");
-        knights[3] = new KnightChess("A2");
+        knights[1] = new KnightChess("b6");
+        knights[2] = new KnightChess("h4");
+        knights[3] = new KnightChess("a2");
         for (KnightChess kn: knights) {
 
-            kn.moveFigure("C3");
+            kn.moveFigure("c3");
 
         }
-
-
+        
     }
 
 }
