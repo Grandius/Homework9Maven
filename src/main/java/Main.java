@@ -7,13 +7,15 @@ public class Main {
         knights[1] = new KnightChess("B6");
         knights[2] = new KnightChess("H4");
         knights[3] = new KnightChess("A2");
-        knights[4] = new KnightChess("J12");
+        knights[4] = new KnightChess("H12");
+
         for (KnightChess kn: knights) {
 
             kn.moveFigure("C3");
-            System.out.println();
 
         }
+
+        knights[2].moveFigure("W6");
 
     }
 

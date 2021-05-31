@@ -1,10 +1,12 @@
+import java.util.Objects;
+
 public class KnightChess {
 
-    private String initialPosition;
-    private KnightMoveConverter converter= new KnightMoveConverter();
+    private String initialPositionField;
+    private KnightMoveConverter converter = new KnightMoveConverter();
 
     public KnightChess(String initialPosition) {
-        setInitialPosition(initialPosition);
+        initialPositionField = initialPosition;
     }
 
     public KnightChess(KnightMoveConverter converter) {
@@ -17,16 +19,15 @@ public class KnightChess {
     }
 
     public String getInitialPosition() {
-        return initialPosition;
+        return initialPositionField;
     }
 
     public void setInitialPosition(String initialPosition) {
         if (!isValidPosition(initialPosition)) {
-            this.initialPosition = "A1";
-            System.out.println("the provided position is invalid, standard position A1 is used");
+            System.out.println("the provided position " + initialPosition + " is invalid");
 
         } else {
-            this.initialPosition = initialPosition;
+            initialPositionField = initialPosition;
         }
 
     }
@@ -45,27 +46,30 @@ public class KnightChess {
     }
 
     static boolean isValidPosition(String position) {
-        return isValidChar(position.toUpperCase().charAt(0), 'A', 'H') && isValidChar(position.charAt(1), '1', '8');
+
+        boolean validPosition;
+        if (position == null || position.length() != 2) {
+            validPosition = false;
+        } else {
+            validPosition = (!position.isEmpty() || !position.isBlank()) && (isValidChar(position.toUpperCase().charAt(0), 'A', 'H') && isValidChar(position.charAt(1), '1', '8'));
+        }
+        return validPosition;
+
     }
 
     public void moveFigure(String desiredPosition) {
 
-        if (initialPosition == null || initialPosition.isEmpty() || initialPosition.isBlank()) {
-            System.out.println("Initial position is not defined, standard position A1 is used");
-            setInitialPosition("A1");
-            moveFigure(desiredPosition);
-        } else if (desiredPosition == null || desiredPosition.isEmpty() || desiredPosition.isBlank()) {
-            moveFigure("B3");
-        } else if (isValidPosition(desiredPosition)) {
-            converter = converter.convertKnightMove(initialPosition, desiredPosition);
-            if (((converter.getIndex1() == 2) && (converter.getIndex2() == 1)) || ((converter.getIndex1() == 1) && (converter.getIndex2() == 2))) {
-                System.out.println("Knight can move from initial position " + initialPosition + " to position " + desiredPosition);
-            } else {
-                System.out.println("Knight cannot move from initial position " + initialPosition + " to position " + desiredPosition);
-            }
-
+        if (!isValidPosition(initialPositionField)) {
+            System.out.println("The provided initial position " + initialPositionField + " is not correct, knight cannot move");
+        } else if (!isValidPosition(desiredPosition)) {
+            System.out.println("The provided destined position " + desiredPosition + " is not correct, knight cannot move");
         } else {
-            System.out.println("Knight cannot move from initial position " + initialPosition + " to position " + desiredPosition);
+            converter = converter.convertKnightMove(initialPositionField, desiredPosition);
+            if (((converter.getIndex1() == 2) && (converter.getIndex2() == 1)) || ((converter.getIndex1() == 1) && (converter.getIndex2() == 2))) {
+                System.out.println("Knight can move from initial position " + initialPositionField + " to position " + desiredPosition);
+            } else {
+                System.out.println("Knight cannot move from initial position " + initialPositionField + " to position " + desiredPosition);
+            }
         }
     }
 }
