@@ -60,9 +60,9 @@ public class KnightChess {
     public void moveFigure(String desiredPosition) {
 
         if (!isValidPosition(initialPositionField)) {
-            System.out.println("The provided initial position " + initialPositionField + " is not correct, knight cannot move");
+            System.out.println("The provided initial position " + initialPositionField + " is not correct, knight cannot move from that position.");
         } else if (!isValidPosition(desiredPosition)) {
-            System.out.println("The provided destined position " + desiredPosition + " is not correct, knight cannot move");
+            System.out.println("The provided destined position " + desiredPosition + " is not correct, knight cannot move to that position.");
         } else {
             converter = converter.convertKnightMove(initialPositionField, desiredPosition);
             if (((converter.getIndex1() == 2) && (converter.getIndex2() == 1)) || ((converter.getIndex1() == 1) && (converter.getIndex2() == 2))) {

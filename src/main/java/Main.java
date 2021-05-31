@@ -10,11 +10,8 @@ public class Main {
         knights[4] = new KnightChess("H12");
 
         for (KnightChess kn: knights) {
-
             kn.moveFigure("C3");
-
         }
-
         knights[2].moveFigure("W6");
 
     }
