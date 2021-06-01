@@ -3,16 +3,22 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 
+import static org.mockito.Mockito.*;
+
 public class KnightChessTest {
 
     @Mock
-    KnightMoveConverter converterMock;
+    KnightMoveConverter converterMock = mock(KnightMoveConverter.class);
     @InjectMocks
-    KnightChess unit = new KnightChess(converterMock);
+    KnightChess knightChess = new KnightChess(converterMock);
 
     @Test
-    public void moveFigure_nominal() {
+    public void whenMovingFigureIsSuccessful() {
 
+        //verify(converterMock).convertKnightMove(knightChess.setInitialPosition(Mockito.anyString()).getInitialPosition(),Mockito.anyString());
+
+        //assertThat(converterMock.convertKnightMove(knightChess.setInitialPosition(Mockito.anyString()).getInitialPosition(),Mockito.anyString()));
+        //verify(knightChess, atLeastOnce()).moveFigure(anyString());
 
     }
 }

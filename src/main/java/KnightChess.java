@@ -22,6 +22,17 @@ public class KnightChess {
         return initialPositionField;
     }
 
+    /*public KnightChess setInitialPosition(String initialPosition) {
+        if (!isValidPosition(initialPosition)) {
+            System.out.println("the provided position " + initialPosition + " is invalid");
+
+        } else {
+            initialPositionField = initialPosition;
+        }
+        return this;
+
+    }*/
+
     public void setInitialPosition(String initialPosition) {
         if (!isValidPosition(initialPosition)) {
             System.out.println("the provided position " + initialPosition + " is invalid");
@@ -29,7 +40,6 @@ public class KnightChess {
         } else {
             initialPositionField = initialPosition;
         }
-
     }
 
     public KnightMoveConverter getConverter() {
